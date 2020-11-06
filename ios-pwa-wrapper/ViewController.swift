@@ -134,14 +134,14 @@ class ViewController: UIViewController {
     // Initialize UI elements
     // call after WebView has been initialized
     func setupUI() {
-        // leftButton.isEnabled = false
+        leftButton.isEnabled = false
 
         // progress bar
         progressBar = UIProgressView(frame: CGRect(x: 0, y: 0, width: webViewContainer.frame.width, height: 40))
         progressBar.autoresizingMask = [.flexibleWidth]
         progressBar.progress = 0.0
         progressBar.tintColor = progressBarColor
-        webView.addSubview(progressBar)
+        // webView.addSubview(progressBar)
         
         // activity indicator
         activityIndicator.color = activityIndicatorColor
@@ -155,11 +155,12 @@ class ViewController: UIViewController {
         // setup navigation bar
         if (forceLargeTitle) {
             if #available(iOS 11.0, *) {
-                navigationItem.largeTitleDisplayMode = UINavigationItem.LargeTitleDisplayMode.always
+                navigationItem.largeTitleDisplayMode = UINavigationItem.LargeTitleDisplayMode.never
             }
         }
         if (useLightStatusBarStyle) {
-            self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+//            self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
         }
         
         // handle menu button changes
